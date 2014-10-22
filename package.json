@@ -1,0 +1,29 @@
+{
+  "name": "node-proxy-boilerplate",
+  "version": "0.0.1",
+  "description": "Get started with a new Node.js based proxy in under a minute",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Conosle/node-proxy-boilerplate.git"
+  },
+  "keywords": [
+    "node",
+    "node.js",
+    "express",
+    "express.js",
+    "proxy",
+    "conosle",
+    "boilerplate",
+    "node-proxy-boilerplate"
+  ],
+  "author": "Mikael Söderström (MikaelSoderstrom)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Conosle/node-proxy-boilerplate/issues"
+  },
+  "homepage": "https://github.com/Conosle/node-proxy-boilerplate"
+}
