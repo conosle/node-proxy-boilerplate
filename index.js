@@ -20,7 +20,7 @@ app.use(morgan('[:status] :method :url (:response-time ms)'));
 app.use(express.static(path.join(__dirname, 'static')));
 
 // Get all routes and add them to the router
-var routes = fs.readdirSync(path.join(__dirname, './routes'))
+fs.readdirSync(path.join(__dirname, './routes'))
     .forEach(function (file) {
         if (path.extname(file) === '.js') {
             var filename = path.basename(file, '.js');
