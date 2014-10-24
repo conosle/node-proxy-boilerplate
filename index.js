@@ -5,7 +5,6 @@ var fs = require('fs');
 var path = require('path');
 var morgan = require('morgan');
 var express = require('express');
-//var routes = require('./routes/index.js');
 
 var app = express();
 
