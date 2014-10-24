@@ -1,10 +1,11 @@
 ﻿'use strict';
 
 require('colors');
+var fs = require('fs');
 var path = require('path');
 var morgan = require('morgan');
 var express = require('express');
-var routes = require('./routes/index.js');
+//var routes = require('./routes/index.js');
 
 var app = express();
 
@@ -18,8 +19,15 @@ app.use(morgan('[:status] :method :url (:response-time ms)'));
 // Host static information
 app.use(express.static(path.join(__dirname, 'static')));
 
-// Proxy request to backend
-app.use('/', routes(app.get('backendUrl')));
+// Get all routes and add them to the router
+var routes = fs.readdirSync(path.join(__dirname, './routes'))
+    .forEach(function (file) {
+        if (path.extname(file) === '.js') {
+            var filename = path.basename(file, '.js');
+            var asyncRequire = require('./routes/' + filename);
+            app.use('/' + filename, asyncRequire(app));
+        }
+    });
 
 // Start server
 app.listen(app.get('port'), function () {

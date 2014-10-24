@@ -5,7 +5,8 @@ var proxy = require('http-proxy-nocrash');
 
 var router = express.Router();
 
-module.exports = function (backendUrl) {
+module.exports = function (app) {
+    var backendUrl = app.get('backendUrl');
 
     router.get('/', function (req, res) {
         // Relative path for the target

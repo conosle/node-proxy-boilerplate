@@ -9,4 +9,6 @@ router.get('/', function (req, res) {
     res.json({ a: 'value' });
 });
 
-module.exports = router;
+module.exports = function (app) {
+    return router;
+};
