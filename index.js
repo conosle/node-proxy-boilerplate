@@ -23,8 +23,10 @@ fs.readdirSync(path.join(__dirname, './routes'))
     .forEach(function (file) {
         if (path.extname(file) === '.js') {
             var filename = path.basename(file, '.js');
+            var route = filename === 'default' ? '' : filename;
+
             var asyncRequire = require('./routes/' + filename);
-            app.use('/' + filename, asyncRequire(app));
+            app.use('/' + route, asyncRequire(app));
         }
     });
 

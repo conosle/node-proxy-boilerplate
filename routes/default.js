@@ -3,8 +3,9 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function (req, res) {
-    res.json({ a: 'value' });
+router.get('/default.txt', function (req, res) {
+    res.type('text/plain');
+    res.end('Default router');
 });
 
 module.exports = function (app) {
