@@ -8,7 +8,12 @@ var router = express.Router();
 module.exports = function (app) {
     var backendUrl = app.get('backendUrl');
 
-    router.get('/', function (req, res) {
+    router.get('/users/:id', function (req, res) {
+        res.type('text/plain');
+        res.send('Get user with ID: ' + req.params.id);
+    });
+
+    router.get('/*', function (req, res) {
         // Relative path for the target
         req.url = '/';
 
